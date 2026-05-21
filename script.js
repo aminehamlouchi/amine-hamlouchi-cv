@@ -25,6 +25,7 @@ function isValidAccessCode(value) {
 }
 
 function unlockSite() {
+  document.title = "Amine Hamlouchi | Marriage CV";
   document.body.classList.remove("is-locked");
   accessScreen.hidden = true;
   siteShell.hidden = false;
