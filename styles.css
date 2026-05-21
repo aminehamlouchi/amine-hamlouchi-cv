@@ -940,6 +940,12 @@ dialog::backdrop {
   padding: 13px 14px;
 }
 
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
 .contact-form textarea {
   resize: vertical;
   min-height: 150px;
@@ -1032,6 +1038,24 @@ dialog::backdrop {
 }
 
 @media (max-width: 560px) {
+  body {
+    background:
+      linear-gradient(130deg, rgba(0, 140, 114, 0.13), transparent 38%),
+      linear-gradient(315deg, rgba(230, 165, 31, 0.16), transparent 42%),
+      var(--paper);
+  }
+
+  .access-screen {
+    padding: 16px;
+    align-items: start;
+    padding-top: max(18px, env(safe-area-inset-top));
+  }
+
+  .gate-card {
+    margin-top: 18px;
+    padding: 26px 20px;
+  }
+
   .access-row,
   .hero-actions {
     grid-template-columns: 1fr;
@@ -1045,8 +1069,116 @@ dialog::backdrop {
     display: grid;
   }
 
+  .access-row button,
+  .primary-action,
+  .secondary-action {
+    width: 100%;
+  }
+
+  .heritage-banners,
+  .topbar,
+  .hero,
+  .proposal-section {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .heritage-banners {
+    padding-top: 10px;
+  }
+
+  .shahada-banner,
+  .morocco-banner {
+    min-height: 46px;
+  }
+
+  .prophetic-seal {
+    width: 122px;
+    min-height: 36px;
+    padding: 4px 18px 5px;
+  }
+
+  .topbar {
+    position: static;
+    gap: 10px;
+  }
+
+  .topbar nav {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .topbar a,
+  .nav-button {
+    justify-content: center;
+  }
+
+  .hero {
+    gap: 20px;
+    padding: 44px 0 36px;
+  }
+
+  .hero::before {
+    inset: 18% -34% auto auto;
+    width: 124vw;
+    opacity: 0.75;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.1rem, 15vw, 4.8rem);
+    line-height: 0.9;
+  }
+
+  .hero-copy {
+    margin-top: 18px;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    margin-top: 22px;
+  }
+
+  .profile-panel,
+  .pdf-panel,
+  .contact-actions-card,
+  .summary-experience,
+  .contact-form {
+    box-shadow: 0 18px 42px rgba(0, 111, 92, 0.14);
+  }
+
   .pdf-actions {
     grid-template-columns: 1fr;
+  }
+
+  .proposal-section {
+    padding-top: 18px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(2.3rem, 13vw, 3.4rem);
+  }
+
+  .cv-preview {
+    padding: 8px;
+  }
+
+  .cv-preview img {
+    max-height: 78vh;
+  }
+
+  .pdf-viewer {
+    height: 68vh;
+    min-height: 430px;
+  }
+
+  .contact-actions-card {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .contact-note {
+    padding: 16px;
   }
 
   .summary-stats,
@@ -1067,6 +1199,59 @@ dialog::backdrop {
 
   .profile-panel strong {
     text-align: left;
+  }
+
+  .summary-experience {
+    padding: 16px;
+  }
+
+  .summary-heading h2 {
+    font-size: clamp(1.7rem, 8vw, 2.35rem);
+    line-height: 1.03;
+  }
+
+  .summary-panel {
+    min-height: auto;
+    padding: 20px 16px;
+  }
+
+  .summary-panel h3 {
+    font-size: clamp(1.45rem, 7vw, 2rem);
+    line-height: 1.05;
+  }
+
+  .summary-panel p:not(.section-kicker) {
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .summary-pills span {
+    min-height: 38px;
+  }
+
+  .dialog-frame,
+  .contact-form {
+    width: min(94vw, 560px);
+    padding: 24px 18px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.98rem;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    font-size: 0.88rem;
+  }
+
+  .contact-header {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .contact-header h2 {
+    font-size: clamp(1.5rem, 9vw, 2.15rem);
   }
 }
 
