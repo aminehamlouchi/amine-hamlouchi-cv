@@ -771,6 +771,7 @@ button {
   width: 20px;
   height: 20px;
   flex: 0 0 auto;
+  overflow: visible;
   fill: none;
   stroke: currentColor;
   stroke-linecap: round;
@@ -778,9 +779,48 @@ button {
   stroke-width: 1.9;
 }
 
-.social-icon-fill {
-  fill: currentColor;
+.tiktok-cyan {
+  stroke: #25f4ee;
+  transform: translate(-1px, 1px);
+}
+
+.tiktok-red {
+  stroke: #fe2c55;
+  transform: translate(1px, -1px);
+}
+
+.tiktok-main {
+  stroke: #111;
+}
+
+.instagram-stroke {
+  stroke: url("#instagram-gradient");
+}
+
+.instagram-dot {
+  fill: url("#instagram-gradient");
   stroke: none;
+}
+
+.youtube-body {
+  fill: #ff0033;
+  stroke: none;
+}
+
+.youtube-play {
+  fill: #fff;
+  stroke: none;
+}
+
+.whatsapp-bubble {
+  fill: #25d366;
+  stroke: none;
+}
+
+.whatsapp-phone {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.7;
 }
 
 .social-grid a:hover {
