@@ -754,6 +754,7 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   padding: 10px 12px;
   border: 1px solid rgba(0, 140, 114, 0.22);
   border-radius: 8px;
@@ -764,6 +765,22 @@ button {
   text-decoration: none;
   background: linear-gradient(180deg, #ffffff, #f4fffb);
   transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.9;
+}
+
+.social-icon-fill {
+  fill: currentColor;
+  stroke: none;
 }
 
 .social-grid a:hover {
@@ -1270,6 +1287,11 @@ dialog::backdrop {
     min-height: 44px;
     padding: 9px 8px;
     font-size: 0.92rem;
+  }
+
+  .social-icon {
+    width: 18px;
+    height: 18px;
   }
 
   .summary-stats,
