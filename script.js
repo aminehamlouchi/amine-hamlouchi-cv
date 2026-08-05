@@ -165,6 +165,38 @@ summaryTabs.forEach((tab) => {
   });
 });
 
+/* ---------- in-page document viewer ---------- */
+const docDialog = document.getElementById("docDialog");
+const docOpeners = document.querySelectorAll("[data-open-doc]");
+const closeDoc = document.getElementById("closeDoc");
+
+if (docDialog && docOpeners.length) {
+  const openDocDialog = (event) => {
+    event.preventDefault();
+    docDialog.querySelectorAll("[data-doc-page]").forEach((img) => {
+      if (!img.src) img.src = img.dataset.src;
+    });
+    if (typeof docDialog.showModal === "function") {
+      docDialog.showModal();
+    } else {
+      docDialog.setAttribute("open", "");
+    }
+  };
+
+  docOpeners.forEach((el) => el.addEventListener("click", openDocDialog));
+  if (closeDoc) closeDoc.addEventListener("click", () => closeDialog(docDialog));
+
+  docDialog.addEventListener("click", (event) => {
+    const bounds = docDialog.getBoundingClientRect();
+    const outside =
+      event.clientX < bounds.left ||
+      event.clientX > bounds.right ||
+      event.clientY < bounds.top ||
+      event.clientY > bounds.bottom;
+    if (outside) closeDialog(docDialog);
+  });
+}
+
 closeIntro.addEventListener("click", () => closeDialog(introDialog));
 closeContact.addEventListener("click", () => closeDialog(contactDialog));
 

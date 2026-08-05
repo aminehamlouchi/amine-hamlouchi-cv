@@ -316,9 +316,8 @@
       <a
         class="pdf-corner"
         href="assets/Amine_Hamlouchi_Marriage_CV_Revised_Final.pdf"
-        target="_blank"
-        rel="noopener"
-        aria-label="Open the original Marriage CV document (PDF)"
+        data-open-doc
+        aria-label="Open the original Marriage CV document"
       >
         <svg viewBox="0 0 40 48" aria-hidden="true" focusable="false">
           <path class="paper" d="M4 2h24l8 8v36H4z"></path>
@@ -328,6 +327,24 @@
         <span>The original<br>document</span>
       </a>
     </div>
+
+    <dialog class="doc-dialog" id="docDialog" aria-labelledby="docTitle">
+      <div class="doc-frame">
+        <div class="doc-header">
+          <div>
+            <p class="section-kicker">Full document</p>
+            <h2 id="docTitle">The Marriage CV</h2>
+          </div>
+          <div class="doc-actions">
+            <a class="quiet-link" href="assets/Amine_Hamlouchi_Marriage_CV_Revised_Final.pdf" target="_blank" rel="noopener">Open PDF</a>
+            <button class="close-button" type="button" id="closeDoc" aria-label="Close document">×</button>
+          </div>
+        </div>
+        <div class="doc-scroll">
+          <img data-doc-page data-src="assets/doc-pages/page-1.jpg" alt="Amine Hamlouchi's Marriage CV document">
+        </div>
+      </div>
+    </dialog>
 
     <dialog class="intro-dialog" id="introDialog" aria-labelledby="introTitle">
       <div class="dialog-frame">
