@@ -205,12 +205,6 @@ const QUOTES = [
     src: "Al-Furqan 25:74"
   },
   {
-    kind: "Qur'an",
-    ar: "إِن يَكُونُوا فُقَرَاءَ يُغْنِهِمُ اللَّهُ مِن فَضْلِهِ",
-    en: "“If they are poor, Allah will enrich them from His bounty.”",
-    src: "An-Nur 24:32"
-  },
-  {
     kind: "Hadith",
     ar: "النِّكَاحُ مِنْ سُنَّتِي",
     en: "“Marriage is part of my Sunnah.”",
@@ -237,7 +231,7 @@ const QUOTES = [
   {
     kind: "Hadith",
     ar: "فَاظْفَرْ بِذَاتِ الدِّينِ تَرِبَتْ يَدَاكَ",
-    en: "“Choose the one with deen — may your hands be rubbed with dust.”",
+    en: "“Marry the one with deen, may your hands be rubbed with dust.”",
     src: "Al-Bukhari 5090"
   },
   {
