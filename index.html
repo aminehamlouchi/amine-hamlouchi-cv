@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex, nofollow">
     <title>Private Access</title>
-    <link rel="icon" href="data:,">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230c3b2b'/%3E%3Cg transform='translate(32 32)' fill='none' stroke='%23d3a545' stroke-width='3'%3E%3Crect x='-13' y='-13' width='26' height='26'/%3E%3Crect x='-13' y='-13' width='26' height='26' transform='rotate(45)'/%3E%3C/g%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body class="is-locked">
@@ -82,10 +82,11 @@
             <span class="tile tile-four"></span>
           </div>
 
-          <div class="hero-content">
+          <div class="hero-content reveal">
             <p class="arabic-line">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
             <p class="section-kicker">Marriage CV</p>
-            <h1 id="heroTitle">Amine Hamlouchi</h1>
+            <h1 id="heroTitle" data-name-reveal>Amine Hamlouchi</h1>
+            <span class="hero-ar-name" lang="ar" aria-hidden="true">أمين حملوشي</span>
             <p class="hero-copy">
               A serious, family-centered introduction offered with sincerity, clarity, and hope for khair and barakah.
             </p>
@@ -95,7 +96,7 @@
             </div>
           </div>
 
-          <aside class="profile-panel" aria-label="Profile highlights">
+          <aside class="profile-panel reveal" aria-label="Profile highlights">
             <div>
               <span>Age</span>
               <strong>22</strong>
@@ -116,13 +117,13 @@
         </section>
 
         <section class="proposal-section" id="proposal" aria-labelledby="proposalTitle">
-          <div class="section-heading">
+          <div class="section-heading reveal">
             <p class="section-kicker">Full document</p>
             <h2 id="proposalTitle">Marriage CV</h2>
           </div>
 
           <div class="document-layout">
-            <div class="pdf-panel">
+            <div class="pdf-panel reveal">
               <figure class="cv-preview">
                 <img
                   src="assets/cv-preview.png"
@@ -149,7 +150,7 @@
               </details>
             </div>
 
-            <aside class="contact-actions-card" aria-label="Contact actions">
+            <aside class="contact-actions-card reveal" aria-label="Contact actions">
               <div class="contact-note">
                 <p class="section-kicker">Questions welcome</p>
                 <p>
@@ -211,7 +212,7 @@
             </aside>
           </div>
 
-          <section class="summary-experience" aria-labelledby="summaryTitle">
+          <section class="summary-experience reveal" aria-labelledby="summaryTitle">
             <div class="summary-heading">
               <p class="section-kicker">At a glance</p>
               <h2 id="summaryTitle">Marriage CV highlights</h2>
@@ -327,6 +328,11 @@
         </section>
 
       </main>
+
+      <footer class="site-footer">
+        <p class="arabic-line" lang="ar">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+        <p>"And of His signs is that He created for you spouses from among yourselves, that you may find tranquility in them — and He placed between you affection and mercy." — Ar-Rum 30:21</p>
+      </footer>
     </div>
 
     <dialog class="intro-dialog" id="introDialog" aria-labelledby="introTitle">

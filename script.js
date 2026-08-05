@@ -30,6 +30,7 @@ function unlockSite() {
   accessScreen.hidden = true;
   siteShell.hidden = false;
   siteShell.removeAttribute("aria-hidden");
+  startReveals();
 
   window.requestAnimationFrame(() => {
     if (typeof introDialog.showModal === "function") {
@@ -179,6 +180,51 @@ contactDialog.addEventListener("click", (event) => {
     closeDialog(contactDialog);
   }
 });
+
+/* ---------- riad motion: reveals + hero name letters ---------- */
+const motionOK = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+
+const nameEl = document.querySelector("[data-name-reveal]");
+if (nameEl && motionOK) {
+  const text = nameEl.textContent;
+  nameEl.setAttribute("aria-label", text);
+  let letterIndex = 0;
+  nameEl.innerHTML = text
+    .split(" ")
+    .map((word) => {
+      const letters = word
+        .split("")
+        .map((ch) => `<span class="name-letter" aria-hidden="true" style="--i:${letterIndex++}">${ch}</span>`)
+        .join("");
+      return `<span class="name-word">${letters}</span>`;
+    })
+    .join(" ");
+}
+
+function startReveals() {
+  if (nameEl) {
+    requestAnimationFrame(() => nameEl.classList.add("name-in"));
+  }
+
+  const revealEls = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window) || !motionOK) {
+    revealEls.forEach((el) => el.classList.add("is-in"));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+  revealEls.forEach((el) => io.observe(el));
+}
 
 contactForm.addEventListener("submit", async (event) => {
   event.preventDefault();
