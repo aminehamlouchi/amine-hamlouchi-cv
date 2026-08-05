@@ -489,8 +489,8 @@ button {
 }
 
 .morocco-banner {
-  background: var(--green);
-  border-color: var(--green-deep);
+  background: #c2604b;
+  border-color: #a94f3c;
 }
 
 .morocco-star {
@@ -500,7 +500,7 @@ button {
 
 .morocco-star polyline {
   fill: none;
-  stroke: var(--gold-bright);
+  stroke: #2f6b50;
   stroke-width: 6;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -781,92 +781,194 @@ button {
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-.document-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: clamp(20px, 3.5vw, 44px);
-  align-items: start;
+/* ============================================================
+   THE STORY
+   ============================================================ */
+.story-intro {
+  max-width: 62ch;
+  margin: 0 auto clamp(26px, 4vh, 40px);
+  text-align: center;
+  font-size: 1.14rem;
+  color: var(--ink);
 }
 
-.pdf-panel {
+.glance-row {
   display: grid;
-  gap: 18px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: clamp(28px, 4vh, 44px);
 }
 
-.cv-preview {
+.glance-row div {
+  padding: 16px 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px 12px 999px 999px;
+  background: var(--cream);
+  text-align: center;
+}
+
+.glance-row span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.glance-row strong {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.story-card {
   position: relative;
-  margin: 0;
-  padding: 16px;
+  padding: clamp(26px, 3.5vw, 38px);
+  padding-top: 40px;
   border: 1px solid var(--line);
   border-radius: 16px;
   background: var(--cream);
-  box-shadow: var(--shadow);
+  transition: transform 260ms var(--ease), box-shadow 260ms var(--ease), border-color 260ms var(--ease);
 }
 
-.cv-preview::after {
+.story-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-soft);
+  box-shadow: 0 20px 50px rgba(12, 59, 43, 0.12);
+}
+
+.story-ornament {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: 0.85rem;
+}
+
+.story-card h3 {
+  margin: 6px 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.story-card p:last-child {
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.story-card p strong {
+  color: var(--green-deep);
+}
+
+.story-card-wide {
+  grid-column: 1 / -1;
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* ---------- looking for (centerpiece) ---------- */
+.looking-for {
+  position: relative;
+  max-width: 780px;
+  margin: clamp(40px, 7vh, 70px) auto 0;
+  padding: clamp(44px, 6vh, 60px) clamp(26px, 5vw, 56px) clamp(30px, 4vh, 44px);
+  border: 1px solid var(--gold-soft);
+  border-radius: var(--arch);
+  background: linear-gradient(180deg, #fffdf6, var(--cream));
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.looking-for::before {
   content: "";
   position: absolute;
-  inset: 8px;
+  inset: 10px;
   border: 1px solid var(--gold-soft);
-  border-radius: 11px;
+  border-radius: 999px 999px 10px 10px;
   pointer-events: none;
 }
 
-.cv-preview img {
-  border-radius: 8px;
+.looking-for .arabic-line {
+  font-size: 1.5rem;
 }
 
-.pdf-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.pdf-embed {
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: var(--cream);
-  overflow: hidden;
-}
-
-.pdf-embed summary {
-  padding: 14px 18px;
-  color: var(--green-deep);
+.looking-for h3 {
+  margin: 8px 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
   font-weight: 600;
-  cursor: pointer;
-  list-style-position: inside;
+  line-height: 1.25;
 }
 
-.pdf-embed summary:hover {
-  background: rgba(184, 137, 47, 0.08);
-}
-
-.pdf-viewer {
-  width: 100%;
-  height: min(78vh, 900px);
-  border: 0;
-}
-
-.pdf-fallback {
-  padding: 22px;
-  text-align: center;
+.looking-for > p:last-of-type {
+  max-width: 58ch;
+  margin-inline: auto;
   color: var(--muted);
 }
 
-/* ---------- contact card ---------- */
-.contact-actions-card {
-  position: sticky;
-  top: 24px;
+.looking-for ul {
+  max-width: 54ch;
+  margin: 20px auto 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
   display: grid;
-  gap: 18px;
-  padding: clamp(22px, 3vw, 32px);
+  gap: 10px;
+}
+
+.looking-for li {
+  position: relative;
+  padding-left: 26px;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.looking-for li::before {
+  content: "\2726";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* ---------- contact band ---------- */
+.contact-band {
+  display: grid;
+  gap: 22px;
+  justify-items: center;
+  max-width: 720px;
+  margin: clamp(48px, 8vh, 80px) auto 0;
+  padding: clamp(28px, 4vw, 44px);
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--cream);
   box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.contact-note h3 {
+  margin: 6px 0 10px;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 .contact-note p:last-child {
+  max-width: 52ch;
+  margin-inline: auto;
   color: var(--muted);
   font-size: 1.02rem;
 }
@@ -890,13 +992,14 @@ button {
 }
 
 .social-links-card {
+  width: 100%;
   border-top: 1px solid var(--line);
-  padding-top: 16px;
+  padding-top: 18px;
 }
 
 .social-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
   margin-top: 10px;
 }
@@ -904,6 +1007,7 @@ button {
 .social-grid a {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   padding: 11px 14px;
   border: 1px solid var(--line);
@@ -928,7 +1032,6 @@ button {
   flex-shrink: 0;
 }
 
-/* social brand strokes (kept from original, calmed) */
 .social-icon-tiktok path { fill: none; stroke-width: 2; stroke-linecap: round; }
 .tiktok-cyan { stroke: #24d3ce; transform: translate(-0.7px, -0.7px); }
 .tiktok-red { stroke: #e64f66; transform: translate(0.7px, 0.7px); }
@@ -941,145 +1044,174 @@ button {
 .whatsapp-phone { fill: #fff; }
 
 /* ============================================================
-   SUMMARY / HIGHLIGHTS
+   ROTATING QUOTES — rails & band
    ============================================================ */
-.summary-experience {
-  margin-top: clamp(48px, 8vh, 88px);
-}
-
-.summary-heading {
-  margin-bottom: 22px;
+.quote-rail {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  display: none;
+  width: 180px;
   text-align: center;
 }
 
-.summary-heading h2 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 3.6vw, 2.4rem);
-  font-weight: 600;
-}
+.rail-left { left: 22px; }
+.rail-right { right: 22px; }
 
-.summary-stats {
+.quote-inner {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  margin: 26px 0;
-}
-
-.summary-stats div {
-  padding: 16px 12px;
+  gap: 10px;
+  padding: 22px 16px 18px;
   border: 1px solid var(--line);
-  border-radius: 12px 12px 999px 999px;
+  border-radius: var(--arch);
   background: var(--cream);
-  text-align: center;
+  box-shadow: 0 16px 44px rgba(12, 59, 43, 0.1);
+  transition: opacity 700ms var(--ease), transform 700ms var(--ease);
 }
 
-.summary-stats span {
-  display: block;
-  margin-bottom: 4px;
+.quote-inner.is-out {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.quote-kind {
   color: var(--gold);
-  font-size: 0.7rem;
+  font-size: 0.64rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
-.summary-stats strong {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.summary-board {
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: var(--cream);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
-.summary-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  border-bottom: 1px solid var(--line);
-  background: #fff;
-}
-
-.summary-tab {
-  flex: 1;
-  min-width: 110px;
-  padding: 15px 10px;
-  border: 0;
-  border-bottom: 2px solid transparent;
-  background: transparent;
-  color: var(--muted);
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  transition: color 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
-}
-
-.summary-tab:hover {
-  color: var(--green);
-  background: rgba(184, 137, 47, 0.06);
-}
-
-.summary-tab.is-active {
+.quote-ar {
+  font-family: var(--font-arabic);
+  font-size: 1.05rem;
+  line-height: 1.9;
   color: var(--green-deep);
-  border-bottom-color: var(--gold);
 }
 
-.summary-panel {
-  padding: clamp(24px, 4vw, 40px);
-  animation: panel-in 500ms var(--ease);
+.quote-en {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.55;
 }
 
-@keyframes panel-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+.quote-src {
+  color: var(--gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.quote-band {
+  display: block;
+  max-width: 760px;
+  margin: clamp(20px, 4vh, 40px) auto 0;
+  padding-inline: clamp(18px, 4vw, 48px);
+  text-align: center;
+}
+
+.quote-band .quote-inner {
+  border-radius: 16px;
+  padding: 20px 22px;
+}
+
+.quote-band .quote-ar {
+  font-size: 1.2rem;
+}
+
+@media (min-width: 1400px) {
+  .quote-rail {
+    display: block;
+  }
+  .quote-band {
+    display: none;
+  }
+  /* squeeze the content so the rails breathe */
+  .hero,
+  .proposal-section {
+    width: min(100% - 2 * clamp(18px, 4vw, 48px), 960px);
   }
 }
 
-.summary-panel h3 {
-  margin: 8px 0 12px;
-  font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-.summary-panel p:last-of-type {
-  max-width: 66ch;
+/* ============================================================
+   PDF — in its little corner
+   ============================================================ */
+.pdf-corner {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  padding: 13px 15px 11px;
+  border: 1px solid var(--line);
+  border-radius: 14px 14px 4px 14px;
+  background: var(--cream);
+  box-shadow: 0 14px 38px rgba(12, 59, 43, 0.16);
   color: var(--muted);
-}
-
-.summary-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 18px;
-}
-
-.summary-pills span {
-  padding: 6px 14px;
-  border: 1px solid var(--gold-soft);
-  border-radius: 999px;
-  color: var(--green-deep);
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  background: rgba(184, 137, 47, 0.07);
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 240ms var(--ease), border-color 240ms var(--ease), box-shadow 240ms var(--ease);
+}
+
+.pdf-corner:hover {
+  transform: translateY(-4px) rotate(-1deg);
+  border-color: var(--gold);
+  box-shadow: 0 20px 48px rgba(12, 59, 43, 0.22);
+  color: var(--green-deep);
+}
+
+.pdf-corner svg {
+  width: 30px;
+  height: 36px;
+}
+
+.pdf-corner .paper {
+  fill: #fff;
+  stroke: var(--line-strong);
+  stroke-width: 2;
+}
+
+.pdf-corner .fold {
+  fill: var(--ivory);
+  stroke: var(--line-strong);
+  stroke-width: 2;
+}
+
+.pdf-corner .lines {
+  fill: none;
+  stroke: var(--gold-soft);
+  stroke-width: 2.5;
+  stroke-linecap: round;
 }
 
 @media (max-width: 900px) {
-  .document-layout {
+  .story-grid {
     grid-template-columns: 1fr;
   }
-  .contact-actions-card {
-    position: static;
-  }
-  .summary-stats {
+  .glance-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .glance-row div:last-child {
+    grid-column: 1 / -1;
+  }
+  .social-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pdf-corner {
+    right: 12px;
+    bottom: 12px;
+    padding: 10px 12px 9px;
+  }
+  .pdf-corner svg {
+    width: 24px;
+    height: 29px;
   }
 }
 

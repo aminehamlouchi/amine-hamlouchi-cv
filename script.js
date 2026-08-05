@@ -184,6 +184,113 @@ contactDialog.addEventListener("click", (event) => {
 /* ---------- riad motion: reveals + hero name letters ---------- */
 const motionOK = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
 
+/* ---------- rotating ayaat, ahadith & wisdom on marriage ---------- */
+const QUOTES = [
+  {
+    kind: "Qur'an",
+    ar: "وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",
+    en: "“And He placed between you affection and mercy.”",
+    src: "Ar-Rum 30:21"
+  },
+  {
+    kind: "Qur'an",
+    ar: "هُنَّ لِبَاسٌ لَّكُمْ وَأَنتُمْ لِبَاسٌ لَّهُنَّ",
+    en: "“They are a garment for you, and you are a garment for them.”",
+    src: "Al-Baqarah 2:187"
+  },
+  {
+    kind: "Qur'an",
+    ar: "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ",
+    en: "“Our Lord, grant us from our spouses and offspring the comfort of our eyes.”",
+    src: "Al-Furqan 25:74"
+  },
+  {
+    kind: "Qur'an",
+    ar: "إِن يَكُونُوا فُقَرَاءَ يُغْنِهِمُ اللَّهُ مِن فَضْلِهِ",
+    en: "“If they are poor, Allah will enrich them from His bounty.”",
+    src: "An-Nur 24:32"
+  },
+  {
+    kind: "Hadith",
+    ar: "النِّكَاحُ مِنْ سُنَّتِي",
+    en: "“Marriage is part of my Sunnah.”",
+    src: "Ibn Majah 1846"
+  },
+  {
+    kind: "Hadith",
+    ar: "خَيْرُكُمْ خَيْرُكُمْ لِأَهْلِهِ",
+    en: "“The best of you are those who are best to their families.”",
+    src: "At-Tirmidhi 3895"
+  },
+  {
+    kind: "Hadith",
+    ar: "لَمْ نَرَ لِلْمُتَحَابَّيْنِ مِثْلَ النِّكَاحِ",
+    en: "“We have not seen anything like marriage for two who love one another.”",
+    src: "Ibn Majah 1847"
+  },
+  {
+    kind: "Hadith",
+    ar: "الدُّنْيَا مَتَاعٌ وَخَيْرُ مَتَاعِ الدُّنْيَا الْمَرْأَةُ الصَّالِحَةُ",
+    en: "“The world is provision, and the best provision of this world is a righteous wife.”",
+    src: "Muslim 1467"
+  },
+  {
+    kind: "Hadith",
+    ar: "فَاظْفَرْ بِذَاتِ الدِّينِ تَرِبَتْ يَدَاكَ",
+    en: "“Choose the one with deen — may your hands be rubbed with dust.”",
+    src: "Al-Bukhari 5090"
+  },
+  {
+    kind: "Hadith",
+    ar: "لَمْ يَسْتَفِدِ الْمُؤْمِنُ بَعْدَ تَقْوَى اللَّهِ خَيْرًا لَهُ مِنْ زَوْجَةٍ صَالِحَةٍ",
+    en: "“After taqwa of Allah, the believer gains nothing better than a righteous wife.”",
+    src: "Ibn Majah 1857"
+  }
+];
+
+const quoteRails = document.querySelectorAll("[data-quote-rail]");
+if (quoteRails.length) {
+  const railState = [];
+
+  quoteRails.forEach((rail, railIndex) => {
+    const offset = Number(rail.dataset.offset || railIndex);
+    const inner = document.createElement("div");
+    inner.className = "quote-inner";
+    rail.appendChild(inner);
+    railState.push({ inner, index: (offset * 3) % QUOTES.length });
+  });
+
+  const renderQuote = (state) => {
+    const q = QUOTES[state.index % QUOTES.length];
+    state.inner.innerHTML = `
+      <p class="quote-kind">${q.kind}</p>
+      <p class="quote-ar" lang="ar" dir="rtl">${q.ar}</p>
+      <p class="quote-en">${q.en}</p>
+      <p class="quote-src">${q.src}</p>
+    `;
+  };
+
+  railState.forEach(renderQuote);
+
+  const prefersMotion = window.matchMedia("(prefers-reduced-motion: no-preference)").matches;
+  if (prefersMotion) {
+    setInterval(() => {
+      if (document.hidden) return;
+      railState.forEach((state, i) => {
+        // stagger the two rails slightly so they never blink in sync
+        setTimeout(() => {
+          state.inner.classList.add("is-out");
+          setTimeout(() => {
+            state.index += 1;
+            renderQuote(state);
+            state.inner.classList.remove("is-out");
+          }, 720);
+        }, i * 900);
+      });
+    }, 11000);
+  }
+}
+
 const nameEl = document.querySelector("[data-name-reveal]");
 if (nameEl && motionOK) {
   const text = nameEl.textContent;
